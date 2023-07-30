@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+
+<h3>Cache pass</h3>
+<p></p>
+
+{% endblock heading %}
+
+{% block main_content %}
+
+<div class="my-div-cache">
+<form method="post" class="my-cache-form" id="main-form">
+
+    {{ form.hidden_tag() }}
+    <div class="my_row">
+        {{ form.site.label(class_="my_label") }}
+        <div class="my_row_input">
+            {{ form.site(class_="my_input", id="focus-curser") }}
+        </div>
+    </div>
+
+    <div class="my_row">
+        {{ form.name.label(class_="my_label") }}
+        <div class="my_row_input">
+            {{ form.name(class_="my_input") }}
+        </div>
+    </div>
+
+    <div class="my_row">
+        {{ form.password.label(class_="my_label") }}
+        <div class="my_row_input">
+            {{ form.password(class_="my_input_cache", id="cachePass", value="") }}
+        </div>
+
+        <div class="btn-group my_gen_cache my_btn dropend">
+          <button type="button" class="btn btn btn-info btn-sm dropdown-toggle" data-bs-toggle="dropdown"  data-bs-placement="end" aria-expanded="false">
+            Generate
+          </button>
+          <ul class="dropdown-menu">
+
+              <li>
+                  <input type="number" class="my_gen_inputs" id="letters" placeholder="#of-letters" name="num_letters">
+              </li>
+            <li>
+                  <input type="number" class="my_gen_inputs" id="numbers" placeholder="#of-numbers" name="num_numbers">
+              </li>
+            <li>
+                 <input type="number" class="my_gen_inputs" id="symbols" placeholder="#of-symbols" name="num_symbols">
+              </li>
+            <button type="submit"  class="btn-sd" onclick="fillPassword(generatePassword)" name="my_sad_sad_btn" id="submit-btn">Submit</button>
+
+          </ul>
+        </div>
+    </div>
+    <div class="my_submit_cache">
+        {{ form.submit(class_="my_btn btn btn-outline-info") }}
+    </div>
+</form>
+
+
+
+</div>
+
+{% endblock main_content %}
+
+{% block js%}
+
+const uppercaseLetters = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+const lowercaseLetters = Array.from('abcdefghijklmnopqrstuvwxyz');
+const letters = [...uppercaseLetters, ...lowercaseLetters];
+const digits = Array.from('0123456789');
+const symbols = Array.from('!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~');
+
+function generatePassword(letter = 4, dig = 3, sym = 3) {
+  let password = [];
+  for (let [charsList, num] of [[letters, letter], [digits, dig], [symbols, sym]]) {
+    for (let i = 0; i < num; i++) {
+      password.push(charsList[Math.floor(Math.random() * charsList.length)]);
+    }
+  }
+  password.sort(() => Math.random() - 0.5);
+  return password.join('');
+}
+
+function fillPassword (func) {
+    const numLetters = document.querySelector("#letters");
+    const numNumbers = document.querySelector("#numbers");
+    const numSymbols = document.querySelector("#symbols");
+    const passValue = document.querySelector("#cachePass");
+
+    let password = func(numLetters.value, numNumbers.value, numSymbols.value);
+    passValue.value = password;
+
+}
+
+{% endblock js%}
+
+

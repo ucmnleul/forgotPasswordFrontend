@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+
+<h3>Retrieve pass</h3>
+<p>Retrieve password using website url or website name or secret find key.</p>
+
+{% endblock heading %}
+
+{% block main_content %}
+
+<div class="my-div">
+<form method="post">
+    {{ form.hidden_tag() }}
+
+    <div class="my_row">
+        {{ form.csrf_token }}
+        {{ form.site.label(class_="my_label") }}
+        {% if url_error %}
+        <div class="my_row_input">
+            {{ form.site(class_="my_input", id="focus-curser") }}
+        </div>
+          <div class="invalid-feedback  error">
+            {% for error in form.site.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+        <div class="my_row_input">
+            {{ form.site(class_="my_input", id="focus-curser") }}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="my_row">
+        {{ form.name.label(class_="my_label") }}
+        <div class="my_row_input">
+            {{ form.name(class_="my_input") }}
+        </div>
+    </div>
+    <div class="my_submit">
+        {{ form.submit(class_="my_btn btn btn-outline-info bt-sm") }}
+    </div>
+
+</form>
+</div>
+
+{% endblock main_content %}
+
+{% block js%}
+
+document.getElementById("focus-curser").focus();
+
+{% endblock js%}
+
+

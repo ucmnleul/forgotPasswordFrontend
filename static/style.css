@@ -1,0 +1,274 @@
+/* Set margin on top and bottom to center the card vertically */
+      .card-container {
+        margin: 25% auto;
+      }
+ /* Set height of card to 400px */
+      .card {
+        height: 400px;
+      }
+
+      .card-header {
+        background-color: white;
+        color: #0077B6;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        text-align: left;
+        height: 10%;
+        padding: 0; /* Add this line to remove padding */
+        padding-left: 5px;
+      }
+
+      .card-header:hover{
+        background-color: #0077B6;
+        color: #FFFFFF;
+      }
+
+       .card-body {
+          position: relative;
+          text-align: center;
+        }
+
+
+
+        .home-div {
+          position: absolute;
+          top: 15%;
+          left: 10%;
+          text-align: left;
+        }
+
+        .home-div p{
+            padding: 20px 50px 0 0px;
+            font-family: cnn_sans_display,helveticaneue,Helvetica,Arial,Utkal,sans-serif;
+            font-weight: 100;
+        }
+
+
+
+        .card-body h3 span{
+           font-family: 'Playfair Display', serif;
+           font-size: 1.5rem;
+           color: white;
+           padding: 3px 20px;
+           background-color: #0077B6;
+           font-weight: 3;
+        }
+
+
+
+              /* Style for button div */
+      .button-div {
+        margin-top: 20px;
+        text-align: center;
+      }
+/* Style for button div */
+      .button-div {
+        position: absolute;
+        text-align: center;
+
+      }
+      .welcome button:first-child {
+        margin-right: 60px;
+      }
+
+      .welcome {
+        top: 70%;
+        left: 30%;
+        transform: translate(-15%, -50%);
+      }
+
+
+
+/*#############################################################################*/
+
+.my-div {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 90% ;
+    height: 60%;
+    background-color: ;
+    padding-top:10%;
+    padding-left: 5%;
+        }
+
+
+.my_row {
+    position: relative;
+    padding: 5% 0%;
+}
+
+
+.my_label {
+    position: absolute;
+    left: 5%;
+    top:2%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+}
+
+.my_row_input {
+    position: absolute;
+    left: 25%;
+    top: 2%;
+}
+
+
+.my_input {
+    width: 280px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+
+
+.my_input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #007bff;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+
+
+.my_submit {
+    position: absolute;
+    right: 20%;
+    bottom: 13%;
+}
+
+
+.my_btn:hover{
+    background-color: #0077B6;
+}
+
+
+
+/*#############################################################################*/
+
+.my-div-cache {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 90% ;
+    height: 70%;
+    background-color: ;
+    padding-top:10%;
+    padding-left: 5%;
+        }
+
+.my-cache-form {
+    position: absolute;
+    top: 15%;
+    left: 0%;
+    width: 100% ;
+    height: 85%;
+}
+
+.my_input_cache {
+    width: 230px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+
+
+.my_input_cache:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #007bff;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+
+.my_row_input {
+    position: absolute;
+    left: 25%;
+    top: 2%;
+}
+
+.my_gen_cache {
+    position: absolute;
+    right: 5%;
+    top: 0%;
+}
+
+.my_submit {
+    position: absolute;
+    right: 20%;
+    bottom: 13%;
+}
+
+
+.my_submit_cache {
+    position: absolute;
+    right: 20%;
+    bottom: 7%;
+}
+
+.my_gen_inputs{
+    outline: none;
+    box-shadow: none;
+    border-color: #007bff;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+
+
+
+.btn-sd {
+    outline: none;
+    box-shadow: none;
+    border-color: #007bff;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    -webkit-border-radius: 8;
+    -moz-border-radius: 8;
+    border-radius: 8px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 12px;
+    background: #17a2b8;
+    text-decoration: none;
+    margin-left: 35%;
+    margin-top: ;
+    }
+
+.btn-sd:hover {
+  background: #17a2b9;
+  text-decoration: none;
+
+}
+.alert svg {
+  width: 16px;
+  height: 16px;
+}
+.clipboard-img{
+    position: absolute;
+    bottom: 25%;
+    right: 4%;
+}
+
+.clipboard-img:active{
+    width: 22px;
+    height: 22px;
+}
+
+
+}
+
+
+
+.fash-message-div{
+    padding-left: 5%;
+    width: 100%;
+    position: relative;
+}
+
+.edit-message{
+    margin-right: 2%;
+}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+
+<h3>Welcome to <span>forget Password</span></h3>
+
+<p>I save and provide fast access to your sensitive details. Choose to retrieve or cache password on your onedrive account. </p>
+
+{% endblock heading %}
+
+{% block main_content %}
+
+<div class="button-div welcome">
+    <button type="button" onclick='location.href=" {{ url_for ('retrieve')}}"' class="btn  btn-outline-secondary btn">Retrieve</button>
+    <button type="button" onclick='location.href=" {{ url_for ('cache')}}"' class="btn  btn-outline-secondary btn">Cache</button>
+</div>
+
+{% endblock main_content %}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Card Example</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" {{url_for('static', filename='style.css') }}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+
+
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-6 card-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages%}
+              {% for category, message in messages%}
+
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                      <symbol id="check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                      </symbol>
+                      <symbol id="info-fill" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                      </symbol>
+                      <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                      </symbol>
+                    </svg>
+
+                    <div class="alert alert-{{ category }} d-flex align-items-center" role="alert">
+                      <svg class="bi bi-extrasmall edit-message flex-shrink-10 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                      <div class="fash-message-div">
+                        {{ message }}
+                        {% if copy_text%}
+                          <a href="#" class="copy-text-icon" onclick="copyToClipboard('{{ copy_text }}')">
+<!--                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="40" height="40">-->
+<!--                                <path d="M19,4H15.82A2,2,0,0,0,14,2H7A2,2,0,0,0,5,4V18a2,2,0,0,0,2,2h5V16h2v4h5a2,2,0,0,0,2-2V6A2,2,0,0,0,19,4ZM9,4h4V6H9Zm6,14H9V16h6Zm4-4H9V12h10Z"/>-->
+<!--                            </svg>-->
+                            <img class="clipboard-img" width="24px", height="24px" src="../static/clipboard.png">
+                          </a>
+                        {%endif%}
+
+                      </div>
+                    </div>
+              {% endfor%}
+            {% endif%}
+            {% endwith %}
+            {% block content %}{% endblock %}
+
+          <div class="card">
+            <div class="card-header">
+             <small>forget password</small>
+            </div>
+            <div class="card-body">
+
+              <div class="home-div">
+                  {% block heading %} {% endblock heading %}
+
+              </div>
+
+              {% block main_content %} {% endblock main_content %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
+    <script>
+
+    function copyToClipboard(text) {
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            console.log('Text copied to clipboard');
+            alert('Text copied to clipboard');
+        })
+        .catch((error) => {
+            console.error('Error copying text to clipboard:', error);
+            alert('Error copying text to clipboard');
+        });
+}
+
+      {% block js%} {% endblock js%}
+    </script>
+  </body>
+</html>
